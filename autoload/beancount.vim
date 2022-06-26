@@ -70,11 +70,12 @@ let s:directives = ['open', 'close', 'commodity', 'txn', 'balance', 'pad', 'note
 function! beancount#complete(findstart, base) abort
     if a:findstart
         let l:col = searchpos('\s', 'bn', line('.'))[1]
-        if l:col == 0
-            return -1
-        else
-            return l:col
-        endif
+        return l:col
+        "if l:col == 0
+        "    return -1
+        "else
+        "    return l:col
+        "endif
     endif
 
     let l:partial_line = strpart(getline('.'), 0, getpos('.')[2]-1)
